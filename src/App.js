@@ -14,13 +14,13 @@ function App() {
   }, []);
 
   async function getTransactions() {
-    const url = process.env.REACT_APP_API_URL + '/transactions'
+    const url = process.env.REACT_APP_API_URL + '/transactions';
     const response = await fetch(url);
     return await response.json();
   }
   function addNewTransaction(ev) {
     ev.preventDefault();
-    const url = process.env.REACT_APP_API_URL + '/transactions';
+    const url = process.env.REACT_APP_API_URL + '/transaction';
     const price = name.split(' ')[0];
       fetch(url, {
         method: 'POST',
@@ -68,7 +68,7 @@ function App() {
         <button type="submit" >Add new transaction</button>
       </form>
       <div className="transactions">
-        {getTransactions.length > 0 && transactions.map(transaction => (
+        {transactions.length > 0 && transactions.map(transaction => (
           <div>
             <div className="transaction">
           <div className="left">
