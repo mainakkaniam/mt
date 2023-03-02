@@ -33,6 +33,7 @@ function App() {
         })
       }).then(response => {
         response.json().then(json => {
+          setTransactions([...transactions, json]);
           console.log('result', json);
         });
       });
@@ -48,7 +49,7 @@ function App() {
   balance = balance.split('.')[0];
   return (
     <main>
-      <h1>${balance} <span>{ fraction}</span></h1>
+      <h1>&#8377;{balance} <span>{ fraction}</span></h1>
       <form onSubmit={addNewTransaction}>
         <div className="basic">
           <input type="text"
